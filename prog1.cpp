@@ -1,0 +1,39 @@
+#include<stdio.h>
+int main()
+{
+	int n,a[10][10]={0},i,j,r,l,h,k=1;
+	scanf("%d",&n);
+	r=(n+1)/2;
+	l=0;
+	h=n-1;
+	for(i=0;i<r;i++)
+	{
+		for(j=l;j<=h;j++)
+		{
+			a[i][j]=k++;
+		}
+		for(j=l+1;j<=h;j++)
+		{
+			a[j][h]=k++;
+		}
+		for(j=h-1;j>=l;j--)
+		{
+			a[h][j]=k++;
+		}
+		for(j=h-1;j>l;j--)
+		{
+			a[j][l]=k++;
+		}
+		l++;
+		h--;
+	}
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("%3d",a[i][j]);
+		}
+	printf("\n");
+	}
+	return 0;
+}
